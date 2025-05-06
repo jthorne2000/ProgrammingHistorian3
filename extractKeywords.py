@@ -27,4 +27,3 @@ for entry in allTexts:
             else:
                 storedMatches.append(words)
             matches += 1
-    print(matches)
