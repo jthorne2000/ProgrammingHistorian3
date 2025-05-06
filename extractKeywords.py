@@ -9,6 +9,8 @@ allTexts = f.read().lower().split("\n")
 f.close()
 
 for entry in allTexts:
+    matches = 0
+    storedMatches = []
     #for each entry:
     allWords = entry.split(' ')
     for words in allWords:
@@ -17,3 +19,12 @@ for entry in allTexts:
         words = words.replace(',','')
         words = words.replace('.','')
         words = words.replace(';','')
+
+        # if a keyword match is found, store the result.
+        if words in allKeywords:
+            if words in storedMatches:
+                continue
+            else:
+                storedMatches.append(words)
+            matches += 1
+    print(matches)
