@@ -1,39 +1,42 @@
-#Import the key words
-f = open('gazetteer.txt','r')
+#Import the keywords
+f = open('gazetteer.txt', 'r')
 allKeywords = f.read().lower().split("\n")
 f.close()
 
 #Import the texts you want to search
-f = open('text.txt','r')
+f = open('texts.txt', 'r')
 allTexts = f.read().lower().split("\n")
 f.close()
 
+#Our programme:
 for entry in allTexts:
     matches = 0
     storedMatches = []
-    
+
     #for each entry:
     allWords = entry.split(' ')
     for words in allWords:
 
         #remove punctuation that will interfere with matching
-        words = words.replace(',','')
-        words = words.replace('.','')
-        words = words.replace(';','')
+        words = words.replace(',', '')
+        words = words.replace('.', '')
+        words = words.replace(';', '')
 
-        # if a keyword match is found, store the result.
+
+        #if a keyword match is found, store the result.
         if words in allKeywords:
             if words in storedMatches:
                 continue
             else:
                 storedMatches.append(words)
             matches += 1
-    # if there is a stored result, print it out
+
+    #if there is a stored result, print it out
     if matches == 0:
         print(' ')
     else:
         matchString = ''
         for matches in storedMatches:
             matchString = matchString + matches + "\t"
-        
+
         print(matchString)
