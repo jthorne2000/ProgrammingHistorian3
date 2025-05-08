@@ -27,3 +27,12 @@ for entry in allTexts:
             else:
                 storedMatches.append(words)
             matches += 1
+    # if there is a stored result, print it out
+    if matches == 0:
+        print(' ')
+    else:
+        matchString = ''
+        for matches in storedMatches:
+            matchString = matchString + matches + "\t"
+        
+        print(matchString)
