@@ -11,6 +11,7 @@ f.close()
 for entry in allTexts:
     matches = 0
     storedMatches = []
+    
     #for each entry:
     allWords = entry.split(' ')
     for words in allWords:
